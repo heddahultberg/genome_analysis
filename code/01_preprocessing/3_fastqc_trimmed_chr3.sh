@@ -2,7 +2,7 @@
 #SBATCH -A uppmax2026-1-61
 #SBATCH -p pelle
 #SBATCH -n 2
-#SBATCH -t 02:00:00
+#SBATCH -t 01:00:00
 #SBATCH -J fastqc_trimmed_chr3
 #SBATCH -o /home/hehu0346/genome_analysis/logs/slurm-%j.out
 

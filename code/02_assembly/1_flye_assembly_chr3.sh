@@ -1,9 +1,9 @@
 #!/bin/bash -l
 #SBATCH -A uppmax2026-1-61
 #SBATCH -p pelle
-#SBATCH -c 16
+#SBATCH -c 2
 #SBATCH --mem=64G
-#SBATCH -t 5:00:00
+#SBATCH -t 72:00:00
 #SBATCH -J flye_chr3
 #SBATCH -o /home/hehu0346/genome_analysis/logs/slurm-%j.out
 
@@ -20,5 +20,5 @@ mkdir -p $OUTDIR
 flye \
 --nano-raw $INPUT \
 --out-dir $OUTDIR \
---threads 16
+--threads 2
 
