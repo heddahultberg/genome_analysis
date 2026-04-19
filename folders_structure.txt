@@ -21,47 +21,61 @@
 │   │       ├── chr3_R1_unpaired.fq.gz
 │   │       ├── chr3_R2_paired.fq.gz
 │   │       └── chr3_R2_unpaired.fq.gz
-│   └── 02_assembly
-│       └── flye_chr3
-│           ├── 00-assembly
-│           │   ├── draft_assembly.fasta
-│           │   └── draft_assembly.fasta.fai
-│           ├── 10-consensus
-│           │   ├── consensus.fasta
-│           │   ├── minimap.bam.csi
-│           │   └── minimap.stderr
-│           ├── 20-repeat
-│           │   ├── graph_after_rr.gv
-│           │   ├── graph_before_rr.fasta
-│           │   ├── graph_before_rr.gfa
-│           │   ├── graph_before_rr.gv
-│           │   ├── read_alignment_dump
-│           │   ├── repeat_graph_dump
-│           │   └── repeat_graph_edges.fasta
-│           ├── 30-contigger
-│           │   ├── contigs.fasta
-│           │   ├── contigs.fasta.fai
-│           │   ├── contigs_stats.txt
-│           │   ├── graph_final.fasta
-│           │   ├── graph_final.gfa
-│           │   ├── graph_final.gv
-│           │   └── scaffolds_links.txt
-│           ├── 40-polishing
-│           │   ├── base_coverage.bed.gz
-│           │   ├── contigs_stats.txt
-│           │   ├── edges_aln.bam.csi
-│           │   ├── filtered_contigs.fasta
-│           │   ├── filtered_contigs.fasta.fai
-│           │   ├── filtered_stats.txt
-│           │   ├── minimap_1.bam.csi
-│           │   ├── minimap.stderr
-│           │   └── polished_edges.gfa
-│           ├── assembly.fasta
-│           ├── assembly_graph.gfa
-│           ├── assembly_graph.gv
-│           ├── assembly_info.txt
-│           ├── flye.log
-│           └── params.json
+│   ├── 02_assembly
+│   │   ├── bwa_chr3
+│   │   │   ├── alignment.sorted.bam
+│   │   │   └── alignment.sorted.bam.bai
+│   │   ├── flye_chr3
+│   │   │   ├── 00-assembly
+│   │   │   │   ├── draft_assembly.fasta
+│   │   │   │   └── draft_assembly.fasta.fai
+│   │   │   ├── 10-consensus
+│   │   │   │   ├── consensus.fasta
+│   │   │   │   ├── minimap.bam.csi
+│   │   │   │   └── minimap.stderr
+│   │   │   ├── 20-repeat
+│   │   │   │   ├── graph_after_rr.gv
+│   │   │   │   ├── graph_before_rr.fasta
+│   │   │   │   ├── graph_before_rr.gfa
+│   │   │   │   ├── graph_before_rr.gv
+│   │   │   │   ├── read_alignment_dump
+│   │   │   │   ├── repeat_graph_dump
+│   │   │   │   └── repeat_graph_edges.fasta
+│   │   │   ├── 30-contigger
+│   │   │   │   ├── contigs.fasta
+│   │   │   │   ├── contigs.fasta.fai
+│   │   │   │   ├── contigs_stats.txt
+│   │   │   │   ├── graph_final.fasta
+│   │   │   │   ├── graph_final.gfa
+│   │   │   │   ├── graph_final.gv
+│   │   │   │   └── scaffolds_links.txt
+│   │   │   ├── 40-polishing
+│   │   │   │   ├── base_coverage.bed.gz
+│   │   │   │   ├── contigs_stats.txt
+│   │   │   │   ├── edges_aln.bam.csi
+│   │   │   │   ├── filtered_contigs.fasta
+│   │   │   │   ├── filtered_contigs.fasta.fai
+│   │   │   │   ├── filtered_stats.txt
+│   │   │   │   ├── minimap_1.bam.csi
+│   │   │   │   ├── minimap.stderr
+│   │   │   │   └── polished_edges.gfa
+│   │   │   ├── assembly.fasta
+│   │   │   ├── assembly.fasta.amb
+│   │   │   ├── assembly.fasta.ann
+│   │   │   ├── assembly.fasta.bwt
+│   │   │   ├── assembly.fasta.pac
+│   │   │   ├── assembly.fasta.sa
+│   │   │   ├── assembly_graph.gfa
+│   │   │   ├── assembly_graph.gv
+│   │   │   ├── assembly_info.txt
+│   │   │   ├── flye.log
+│   │   │   └── params.json
+│   │   └── pilon_chr3
+│   │       └── pilon_chr3.fasta
+│   └── 03_evaluation
+│       ├── busco_chr3
+│       │   └── busco_chr3
+│       └── quast_chr3
 ├── code
 │   ├── 01_preprocessing
 │   │   ├── 1_fastqc_chr3_raw.sh
@@ -69,8 +83,16 @@
 │   │   ├── 3_fastqc_trimmed_chr3.sh
 │   │   └── logs
 │   │       └── slurm-4910049.out
-│   └── 02_assembly
-│       └── 1_flye_assembly_chr3.sh
+│   ├── 02_assembly
+│   │   ├── 1_flye_assembly_chr3.sh
+│   │   ├── 2_bwa_chr3.sh
+│   │   └── 3_pilon_chr3.sh
+│   ├── 03_evaluation
+│   │   ├── 1_busco_chr3.sh
+│   │   └── 2_quast_chr3.sh
+│   └── 04_annotation
+│       ├── 1_repeatmasking_chr3.sh
+│       └── 2_braker3_chr3.sh
 ├── data
 │   ├── meta_data
 │   ├── raw_data
@@ -82,12 +104,13 @@
 │   └── README.md
 ├── folders_structure.txt
 ├── logs
-│   ├── slurm-4917484.out
-│   ├── slurm-4921798.out
-│   ├── slurm-4921811.out
+│   ├── slurm-4921811_trimmomatic.out
 │   ├── slurm-4922064.out
-│   ├── slurm-4922805.out
-│   └── slurm-4923452.out
+│   ├── slurm-4923452_flye.out
+│   ├── slurm-4930800_bwa.out
+│   ├── slurm-4932352_pilon.out
+│   ├── slurm-4954967_busco.out
+│   └── slurm-4954968_quast.out
 └── README.md
 
 
