@@ -1,4 +1,4 @@
-/genome_analysis
+/home/hehu0346/genome_analysis/
 ├── analyses
 │   ├── 01_preprocessing
 │   │   ├── fastqc_raw_chr3
@@ -10,11 +10,15 @@
 │   │   │   └── nanopore
 │   │   │       ├── chr3_clean_nanopore_fastqc.html
 │   │   │       └── chr3_clean_nanopore_fastqc.zip
+│   │   ├── fastqc_rna
 │   │   ├── fastqc_trimmed_chr3
 │   │   │   ├── chr3_R1_paired_fastqc.html
 │   │   │   ├── chr3_R1_paired_fastqc.zip
 │   │   │   ├── chr3_R2_paired_fastqc.html
 │   │   │   └── chr3_R2_paired_fastqc.zip
+│   │   ├── multiqc_rna
+│   │   │   ├── multiqc_data
+│   │   │   └── multiqc_report.html
 │   │   ├── README.md
 │   │   └── trimmed_chr3
 │   │       ├── chr3_R1_paired.fq.gz
@@ -72,15 +76,117 @@
 │   │   │   └── params.json
 │   │   └── pilon_chr3
 │   │       └── pilon_chr3.fasta
-│   └── 03_evaluation
-│       ├── busco_chr3
-│       │   └── busco_chr3
-│       └── quast_chr3
+│   ├── 03_evaluation
+│   │   ├── busco_chr3
+│   │   │   └── busco_chr3
+│   │   │       ├── logs
+│   │   │       ├── run_embryophyta_odb10
+│   │   │       │   ├── busco_sequences
+│   │   │       │   │   ├── fragmented_busco_sequences
+│   │   │       │   │   ├── multi_copy_busco_sequences
+│   │   │       │   │   └── single_copy_busco_sequences
+│   │   │       │   ├── full_table.tsv
+│   │   │       │   ├── hmmer_output
+│   │   │       │   ├── miniprot_output
+│   │   │       │   │   ├── pilon_chr3_embryophyta_odb10.gff -> ../../logs/miniprot_align_embryophyta_odb10_out.log
+│   │   │       │   │   ├── ref.mpi
+│   │   │       │   │   └── translated_proteins
+│   │   │       │   ├── missing_busco_list.tsv
+│   │   │       │   ├── short_summary.json
+│   │   │       │   └── short_summary.txt
+│   │   │       ├── short_summary.specific.embryophyta_odb10.busco_chr3.json
+│   │   │       └── short_summary.specific.embryophyta_odb10.busco_chr3.txt
+│   │   └── quast_chr3
+│   │       ├── basic_stats
+│   │       │   ├── cumulative_plot.pdf
+│   │       │   ├── FLYE_GC_content_plot.pdf
+│   │       │   ├── GC_content_plot.pdf
+│   │       │   ├── Nx_plot.pdf
+│   │       │   └── PILON_GC_content_plot.pdf
+│   │       ├── icarus.html
+│   │       ├── icarus_viewers
+│   │       │   └── contig_size_viewer.html
+│   │       ├── quast.log
+│   │       ├── report.html
+│   │       ├── report.pdf
+│   │       ├── report.tex
+│   │       ├── report.tsv
+│   │       ├── report.txt
+│   │       ├── transposed_report.tex
+│   │       ├── transposed_report.tsv
+│   │       └── transposed_report.txt
+│   └── 04_annotation
+│       ├── braker3_chr3
+│       │   ├── Augustus
+│       │   │   ├── augustus.hints.aa
+│       │   │   ├── augustus.hints.codingseq
+│       │   │   └── augustus.hints.gtf
+│       │   ├── bam_header.map
+│       │   ├── braker.aa
+│       │   ├── braker.codingseq
+│       │   ├── braker.gtf
+│       │   ├── braker.log
+│       │   ├── errors
+│       │   │   ├── aa2nonred.stderr
+│       │   │   └── ensure_min_n_training_genes.stderr
+│       │   ├── GeneMark-ET
+│       │   │   ├── genemark.f.multi_anchored.gtf
+│       │   │   ├── genemark.gtf
+│       │   │   └── gmhmm.mod
+│       │   ├── genome_header.map
+│       │   ├── hintsfile.gff
+│       │   ├── species
+│       │   │   └── hehu0346_chr3_moss
+│       │   │       ├── ex1.cfg
+│       │   │       ├── hehu0346_chr3_moss_exon_probs.pbl
+│       │   │       ├── hehu0346_chr3_moss_igenic_probs.pbl
+│       │   │       ├── hehu0346_chr3_moss_intron_probs.pbl
+│       │   │       ├── hehu0346_chr3_moss_metapars.cfg
+│       │   │       ├── hehu0346_chr3_moss_metapars.cgp.cfg
+│       │   │       ├── hehu0346_chr3_moss_metapars.utr.cfg
+│       │   │       ├── hehu0346_chr3_moss_parameters.cfg
+│       │   │       ├── hehu0346_chr3_moss_parameters.cfg.orig1
+│       │   │       └── hehu0346_chr3_moss_weightmatrix.txt
+│       │   ├── tmp
+│       │   └── what-to-cite.txt
+│       ├── eggnog_chr3
+│       │   ├── eggnog_chr3.emapper.annotations
+│       │   ├── eggnog_chr3.emapper.hits
+│       │   ├── eggnog_chr3.emapper.pfam
+│       │   ├── eggnog_chr3.emapper.seed_orthologs
+│       ├── hisat2_chr3
+│       │   ├── Control_1.sorted.bam
+│       │   ├── Control_1.sorted.bam.bai
+│       │   ├── Control_2.sorted.bam
+│       │   ├── Control_2.sorted.bam.bai
+│       │   ├── Control_3.sorted.bam
+│       │   ├── Control_3.sorted.bam.bai
+│       │   ├── Heat_treated_42_12h_1.sorted.bam
+│       │   ├── Heat_treated_42_12h_1.sorted.bam.bai
+│       │   ├── Heat_treated_42_12h_2.sorted.bam
+│       │   ├── Heat_treated_42_12h_2.sorted.bam.bai
+│       │   ├── Heat_treated_42_12h_3.sorted.bam
+│       │   └── Heat_treated_42_12h_3.sorted.bam.bai
+│       ├── hisat2_index_chr3
+│       │   ├── chr3_index.1.ht2
+│       │   ├── chr3_index.2.ht2
+│       │   ├── chr3_index.3.ht2
+│       │   ├── chr3_index.4.ht2
+│       │   ├── chr3_index.5.ht2
+│       │   ├── chr3_index.6.ht2
+│       │   ├── chr3_index.7.ht2
+│       │   └── chr3_index.8.ht2
+│       └── repeatmasking_chr3
+│           ├── pilon_chr3.fasta.cat.gz
+│           ├── pilon_chr3.fasta.masked
+│           ├── pilon_chr3.fasta.out
+│           └── pilon_chr3.fasta.tbl
 ├── code
 │   ├── 01_preprocessing
 │   │   ├── 1_fastqc_chr3_raw.sh
 │   │   ├── 2_trimmomatic_chr3.sh
 │   │   ├── 3_fastqc_trimmed_chr3.sh
+│   │   ├── 4_fastqc_rna.sh
 │   │   └── logs
 │   │       └── slurm-4910049.out
 │   ├── 02_assembly
@@ -90,17 +196,38 @@
 │   ├── 03_evaluation
 │   │   ├── 1_busco_chr3.sh
 │   │   └── 2_quast_chr3.sh
-│   └── 04_annotation
-│       ├── 1_repeatmasking_chr3.sh
-│       └── 2_braker3_chr3.sh
+│   ├── 04_annotation
+│   │   ├── 1_repeatmasking_chr3.sh
+│   │   ├── 2_hisat2_index_chr3.sh
+│   │   ├── 3_hisat2_chr3.sh
+│   │   ├── 4_braker3_chr3.sh
+│   │   └── 5_eggnog_chr3.sh
+│   └── 05_expression_analysis
+│       ├── 1_featurecounts_chr3.sh
+│       ├── 2_deseq2_chr3.R
+│       └── 3_deseq2_chr3.sh
 ├── data
 │   ├── meta_data
+│   │   └── rna_seq.tsv
 │   ├── raw_data
 │   │   ├── chr3_clean_nanopore.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/genomics_chr3_data/chr3_clean_nanopore.fq.gz
 │   │   ├── chr3_hiC_R1.fastq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/genomics_chr3_data/chr3_hiC_R1.fastq.gz
 │   │   ├── chr3_hiC_R2.fastq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/genomics_chr3_data/chr3_hiC_R2.fastq.gz
 │   │   ├── chr3_illumina_R1.fastq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/genomics_chr3_data/chr3_illumina_R1.fastq.gz
-│   │   └── chr3_illumina_R2.fastq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/genomics_chr3_data/chr3_illumina_R2.fastq.gz
+│   │   ├── chr3_illumina_R2.fastq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/genomics_chr3_data/chr3_illumina_R2.fastq.gz
+│   │   └── rna_seq
+│   │       ├── Control_1_f1.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Control_1_f1.fq.gz
+│   │       ├── Control_1_r2.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Control_1_r2.fq.gz
+│   │       ├── Control_2_f1.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Control_2_f1.fq.gz
+│   │       ├── Control_2_r2.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Control_2_r2.fq.gz
+│   │       ├── Control_3_f1.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Control_3_f1.fq.gz
+│   │       ├── Control_3_r2.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Control_3_r2.fq.gz
+│   │       ├── Heat_treated_42_12h_1_f1.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Heat_treated_42_12h_1_f1.fq.gz
+│   │       ├── Heat_treated_42_12h_1_r2.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Heat_treated_42_12h_1_r2.fq.gz
+│   │       ├── Heat_treated_42_12h_2_f1.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Heat_treated_42_12h_2_f1.fq.gz
+│   │       ├── Heat_treated_42_12h_2_r2.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Heat_treated_42_12h_2_r2.fq.gz
+│   │       ├── Heat_treated_42_12h_3_f1.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Heat_treated_42_12h_3_f1.fq.gz
+│   │       └── Heat_treated_42_12h_3_r2.fq.gz -> /proj/uppmax2026-1-61/Genome_Analysis/2_Zhou_2023/reads/transcriptomic_data/Heat_treated_42_12h_3_r2.fq.gz
 │   └── README.md
 ├── folders_structure.txt
 ├── logs
@@ -110,7 +237,15 @@
 │   ├── slurm-4930800_bwa.out
 │   ├── slurm-4932352_pilon.out
 │   ├── slurm-4954967_busco.out
-│   └── slurm-4954968_quast.out
+│   ├── slurm-4954968_quast.out
+│   ├── slurm-4993320_repeatmasker.out
+│   ├── slurm-4996826_star_cancelledrun.out
+│   ├── slurm-5001158_fastqc_rna.out
+│   ├── slurm-5039737_star.out
+│   ├── slurm-5049100_hisat2_index.out
+│   ├── slurm-5049362_hisat2.out
+│   ├── slurm-5090753_braker3.out
+│   └── slurm-5100363_eggnog.out
 └── README.md
 
 
