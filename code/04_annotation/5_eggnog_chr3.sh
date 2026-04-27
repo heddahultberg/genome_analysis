@@ -16,7 +16,7 @@ mkdir -p $OUTDIR
 
 cd $OUTDIR
 
-echo "Running eggNOG-mapper (HMMER mode) on:"
+echo "Running eggNOG-mapper on:"
 echo $PROTEINS
 
 emapper.py \
@@ -25,8 +25,6 @@ emapper.py \
     --output_dir $OUTDIR \
     --cpu 2 \
     --itype proteins \
-    --search_mode hmmer \
-    -d viridiplantae \
     --sensmode ultra-sensitive \
     --go_evidence all \
     --pfam_realign realign \
