@@ -21,7 +21,7 @@ sample_names <- basename(sample_names)
 sample_names <- sub("\\.sorted\\.bam$", "", sample_names)
 sample_names <- sub("\\.bam$", "", sample_names)
 
-sample_names <- trimws(clean_names)
+sample_names <- trimws(sample_names)
 
 colnames(count_matrix) <- sample_names
 
