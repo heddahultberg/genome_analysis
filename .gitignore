@@ -1,7 +1,6 @@
 # Ignore these
 *.zip
 *.fastq.gz
-*.fq.gz
 *.bam
 *.sam
 *.meryl
