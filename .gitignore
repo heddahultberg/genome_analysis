@@ -1,2 +1,7 @@
 # Ignore these
-data/raw_data/**
+*.fastq.gz
+*.fq.gz
+*.bam
+*.sam
+*.meryl
+
