@@ -1,6 +1,6 @@
 library(DESeq2)
 
-fc_path <- "/home/hehu0346/genome_analysis/analyses/05_expression_analysis/featurecounts_chr3.txt"
+fc_path <- "/home/hehu0346/genome_analysis/analyses/05_expression_analysis/featurecounts/featurecounts_chr3.txt"
 
 
 fc <- read.table(
