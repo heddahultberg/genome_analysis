@@ -181,6 +181,21 @@
 │           ├── pilon_chr3.fasta.masked
 │           ├── pilon_chr3.fasta.out
 │           └── pilon_chr3.fasta.tbl
+│   └── 05_expression_analysis
+│       ├── DE_analysis
+│       │   ├── down_annotations.txt
+│       │   ├── down_cog.txt
+│       │   ├── down_regulated_genes.txt
+│       │   ├── top20_annotations.txt
+│       │   ├── top20.txt
+│       │   ├── up_annotations.txt
+│       │   ├── up_cog.txt
+│       │   └── up_regulated_genes.txt
+│       ├── deseq2
+│       │   └── deseq2_chr3_results.csv
+│       └── featurecounts
+│           ├── featurecounts_chr3.txt
+│           └── featurecounts_chr3.txt.summary
 ├── code
 │   ├── 01_preprocessing
 │   │   ├── 1_fastqc_chr3_raw.sh
@@ -195,7 +210,8 @@
 │   │   └── 3_pilon_chr3.sh
 │   ├── 03_evaluation
 │   │   ├── 1_busco_chr3.sh
-│   │   └── 2_quast_chr3.sh
+│   │   ├── 2_quast_chr3.sh
+│   │   └── 3_merqury_chr3.sh
 │   ├── 04_annotation
 │   │   ├── 1_repeatmasking_chr3.sh
 │   │   ├── 2_hisat2_index_chr3.sh
@@ -205,7 +221,10 @@
 │   └── 05_expression_analysis
 │       ├── 1_featurecounts_chr3.sh
 │       ├── 2_deseq2_chr3.R
-│       └── 3_deseq2_chr3.sh
+│       ├── 3_deseq2_chr3.sh
+│       ├── 4_significant_DE_genes_chr3.R
+│       ├── 5_merge_deseq2_eggnog_chr3.R
+│       └── 6_plots_chr3.R
 ├── data
 │   ├── meta_data
 │   │   └── rna_seq.tsv
@@ -245,7 +264,10 @@
 │   ├── slurm-5049100_hisat2_index.out
 │   ├── slurm-5049362_hisat2.out
 │   ├── slurm-5090753_braker3.out
-│   └── slurm-5100363_eggnog.out
+│   ├── slurm-5100363_eggnog.out
+│   ├── slurm-5229678_featurecount.out
+│   ├── slurm-5306077_deseq2.out
+│   └── slurm-5495380_merqury.out
 └── README.md
 
 
